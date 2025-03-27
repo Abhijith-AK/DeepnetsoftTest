@@ -23,7 +23,9 @@ const Display = ({ setIsItemOpen }) => {
         if(selectedMenu) getItems()
     }, [selectedMenu, selectedItem])
     return (
-        <div className='w-full md:min-h-[672px] bg-[url("./display.png")] bg-cover bg-center'>
+        <div
+            style={{ backgroundImage: 'url("./display.png")'}}
+            className='w-full md:min-h-[672px] bg-cover bg-center'>
             <div className='h-full w-full relative'>
                 <div className="absolute h-full w-full inset-0 bg-black/80 pointer-events-none"></div>
 

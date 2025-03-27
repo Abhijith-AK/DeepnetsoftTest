@@ -29,7 +29,9 @@ const Display = ({ setIsItemOpen }) => {
 
                 <div className='w-full h-full flex relative justify-between items-center z-10 py-10 md:pt-[54px]'>
                     {/* LEFT FRAME */}
-                    <div className="hidden md:flex h-[672px] w-[150px] bg-[url('./frame1.png')] bg-cover bg-no-repeat bg-center"></div>
+                    <div
+                        style={{ backgroundImage: "url('./frame1.png')"}}
+                        className="hidden md:flex h-[672px] w-[150px] bg-cover bg-no-repeat bg-center"></div>
 
                     {/* CENTER CONTENT */}
                     <div className="md:flex-1 flex items-center justify-center p-4">
@@ -86,7 +88,9 @@ const Display = ({ setIsItemOpen }) => {
                     </div>
 
                     {/* RIGHT FRAME */}
-                    <div className="hidden md:flex h-[672px] w-[150px] bg-[url('./frame2.png')] bg-cover bg-no-repeat bg-center"></div>
+                    <div
+                        style={{ backgroundImage: "url('./frame2.png')"}}
+                        className="hidden md:flex h-[672px] w-[150px] bg-cover bg-no-repeat bg-center"></div>
                 </div>
             </div>
         </div>

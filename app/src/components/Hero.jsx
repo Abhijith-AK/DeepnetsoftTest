@@ -4,7 +4,8 @@ const Hero = () => {
 
     return (
         <div
-            className='w-full h-[231px] md:h-[311px] relative flex justify-center items-center bg-[url("./hero.jpg")] bg-[length:200%_auto] bg-[top_left] md:bg-cover'>
+            style={{ backgroundImage: 'url("./hero.jpg")'}}
+            className='w-full h-[231px] md:h-[311px] relative flex justify-center items-center bg-[length:200%_auto] bg-[top_left] md:bg-cover'>
             <div className="absolute inset-0 bg-gradient-to-l from-black/71 to-black/51"></div>
             <div className="text-center z-5">
                 <h1 className='text-white text-[40px] md:text-[75px] drop-shadow-[4px_3px_0_#800020]'>MENU</h1>

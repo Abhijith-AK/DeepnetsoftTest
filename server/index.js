@@ -9,7 +9,10 @@ const path = require("path")
 const app = express()
 
 // enabling cors
-app.use(cors())
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}))
 // initializing json middleware
 app.use(express.json())
 // using router

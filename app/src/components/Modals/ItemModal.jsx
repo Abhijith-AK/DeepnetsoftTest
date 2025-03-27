@@ -39,7 +39,7 @@ const ItemModal = ({ isItemOpen, setIsItemOpen }) => {
                 alert("ITEM ADDED!")
                 setLoading(false)
             } else {
-                alert(response.data.message)
+                alert(response.response.data.message)
                 setLoading(false)
                 return
             }

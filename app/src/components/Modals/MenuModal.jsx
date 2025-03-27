@@ -38,7 +38,7 @@ const MenuModal = ({ isMenuOpen, setIsMenuOpen }) => {
                 alert("MENU ADDED!")
                 setLoading(false)
             } else {
-                alert(response.data.message)
+                alert(response.response.data.message)
                 setLoading(false)
                 return
             }

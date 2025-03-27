@@ -17,6 +17,14 @@ app.use("/api", router)
 // intializing PORT
 const PORT = 5000
 
+// hosting
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../app/dist")))
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../app", "dist", "index.html"))
+    })
+}
+
 // starting server on defined PORT
 app.listen(PORT, () => {
     console.log(`Server Started running on PORT: ${PORT}`)

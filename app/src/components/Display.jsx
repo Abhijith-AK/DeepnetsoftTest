@@ -5,21 +5,22 @@ import { getAllMenuItemsAPI } from '../services/allApi'
 const Display = ({ setIsItemOpen }) => {
     const [items, setItems] = useState([])
     const { selectedMenu, selectedItem } = useContext(MenuContext)
-    console.log(selectedMenu)
+    // console.log(selectedMenu)
     const getItems = async () => {
         try {
             const response = await getAllMenuItemsAPI(selectedMenu?._id)
             if (response.status == "200") {
                 setItems(response.data)
             } else {
-                alert(response.data.message)
+                alert(response.response.data.message)
             }
         } catch (error) {
+            // alert(error)
             console.log(error)
         }
     }
     useEffect(() => {
-        getItems()
+        if(selectedMenu) getItems()
     }, [selectedMenu, selectedItem])
     return (
         <div className='w-full md:min-h-[672px] bg-[url("./display.png")] bg-cover bg-center'>
@@ -58,7 +59,7 @@ const Display = ({ setIsItemOpen }) => {
                                 <div className="flex justify-around gap-[13px] md:gap-[16px] flex-wrap text-white mt-[34px] md:mt-[48px]">
                                     {items?.length > 0 ?
                                         items?.map((item, i) => (
-                                            <div key={i} className='w-[350px] max-w-[462px] '>
+                                            <div key={i} className='w-[462px] min-h-[78px] max-w-[462px] '>
                                                 <h2 className='text-[16px] md:text-[26px] flex w-full'>
                                                     <span>{item?.name?.toUpperCase()}</span>
                                                     <span className="flex-grow border-b-3 border-dotted border-white mx-2 my-2"></span>

@@ -8,7 +8,7 @@ exports.createMenuController = async (req, res) => {
     if (!name || !description) return res.status(400).json({ message: "All Fields are required!!" })
     try {
         // checking for duplicates
-        const existingMenu = await Menu.findOne({ name })
+        const existingMenu = await Menu.findOne({ name: { $regex: new RegExp(`^${name}$`, "i") } })
         if (existingMenu) return res.status(409).json({ message: "Menu already Exists!" })
         // creating menu
         const newMenu = new Menu({ name, description })
@@ -39,9 +39,9 @@ exports.createMenuItemController = async (req, res) => {
     try {
         // validating menuId
         const existingMenu = await Menu.findById(menuId)
-        if(!existingMenu) return res.status(404).json({message: "Menu Not Found!"})
+        if (!existingMenu) return res.status(404).json({ message: "Menu Not Found!" })
         // checking for duplicates
-        const existingItem = await Item.findOne({ name, menuId })
+        const existingItem = await Item.findOne({ name: { $regex: new RegExp(`^${name}$`, "i") }, menuId })
         if (existingItem) return res.status(409).json({ message: "Item already Exists!" })
         // creating item
         const newItem = new Item({ name, description, price, menuId })
@@ -57,12 +57,12 @@ exports.createMenuItemController = async (req, res) => {
 exports.getAllMenuItemsController = async (req, res) => {
     const { menuId } = req.params
     // validate menuId
-    if(!menuId) return res.status(400).json({message: "Bad request! Menu ID is required"})
+    if (!menuId) return res.status(400).json({ message: "Bad request! Menu ID is required" })
     try {
         // Check if the menu exists
         const menuExists = await Menu.findById(menuId);
         if (!menuExists) return res.status(404).json({ message: "Menu not found!" })
-        const allMenuItems = await Item.find({menuId})
+        const allMenuItems = await Item.find({ menuId })
         return res.status(200).json(allMenuItems)
     } catch (error) {
         res.status(500).json({ message: `Server error: ${error.message}` })

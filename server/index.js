@@ -3,6 +3,7 @@ const cors = require("cors")
 const router = require("./routers/router")
 require("dotenv").config()
 require("./config/dbConnection")
+const path = require("path")
 
 // creating instance of express Application
 const app = express()

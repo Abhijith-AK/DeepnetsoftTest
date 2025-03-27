@@ -63,7 +63,7 @@ const Display = ({ setIsItemOpen }) => {
                                 <div className="flex justify-around gap-[13px] md:gap-[16px] flex-wrap text-white mt-[34px] md:mt-[48px]">
                                     {items?.length > 0 ?
                                         items?.map((item, i) => (
-                                            <div key={i} className='w-[462px] min-h-[78px] max-w-[462px] '>
+                                            <div key={i} className='w-[330px] min-h-[78px] max-w-[462px] '>
                                                 <h2 className='text-[16px] md:text-[26px] flex w-full'>
                                                     <span>{item?.name?.toUpperCase()}</span>
                                                     <span className="flex-grow border-b-3 border-dotted border-white mx-2 my-2"></span>

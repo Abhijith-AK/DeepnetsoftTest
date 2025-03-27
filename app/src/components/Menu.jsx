@@ -23,7 +23,7 @@ const Menu = ({ setIsMenuOpen }) => {
     }, [selectedMenu])
     return (
         <div
-            style={{ backgroundImage: '[url("./menubg.png")'}}
+            style={{ backgroundImage: 'url("./menubg.png")'}}
             className='w-full h-[60px] md:h-[79px] bg-contain'>
             <div className='h-full w-full flex justify-center items-center relative'>
                 <div className="absolute inset-0 bg-black/50"></div>
